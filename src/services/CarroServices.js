@@ -7,7 +7,7 @@ module.exports = {
             db.query('SELECT * FROM carros', (error, results) => {
                 if (error) {
                     rejeitado(error);
-                    roturn;
+                    return;
                 }
                 aceito(results);
             });
