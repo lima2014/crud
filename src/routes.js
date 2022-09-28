@@ -5,5 +5,6 @@
 
   router.get('/carros', CarroControllers.buscarTodos);
   router.get('/carro/:codigo', CarroControllers.buscarUm);
+  router.post('/carro', CarroControllers.inserir);
 
   module.exports = router;

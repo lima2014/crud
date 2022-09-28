@@ -7,7 +7,7 @@ module.exports = {
             db.query('SELECT * FROM carros', (error, results) => {
                 if (error) {
                     rejeitado(error);
-                    return;
+                    roturn;
                 }
                 aceito(results);
             });
@@ -25,6 +25,20 @@ module.exports = {
 
             });
         })
+    },
+
+    //Insere no banco de dados as informações de modelo e placa
+    inserir: (modelo, placa) => {
+        return new Promise((aceito, rejeitado) => {
+
+            db.query('INSERT INTO carros (modelo, placa) VALUES (?, ?)', [modelo, placa],
+                (error, results) => {
+                    if (error) { rejeitado(error); return; }
+                    aceito(results.insertCodigo);
+                }
+
+            );
+        });
     }
 
 };
